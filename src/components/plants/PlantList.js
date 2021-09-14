@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
 
 export const PlantList = () => {
     const [plants, seePlants] = useState([])
-    const history = useHistory()
 
     useEffect(
         () => {
