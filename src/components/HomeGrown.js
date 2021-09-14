@@ -1,17 +1,16 @@
 import React from "react"
-import { PlantList } from "./plants/PlantList"
-import { SeasonList } from "./seasons/SeasonList"
-import { ZoneList } from "./zones/ZoneList"
+import { NavBar } from "./nav/NavBar"
+import { ApplicationViews } from "./ApplicationViews"
 
 
 export const HomeGrown = () => {
 
     return (
         <>
+            <NavBar />
             <h1>Home Grown</h1>
-            <PlantList />
-            <SeasonList />
-            <ZoneList />
+    
+            <ApplicationViews />
 
         </>
     )
