@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { HomeGrown } from "./components/HomeGrown";
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <HomeGrown />
+    <BrowserRouter>
+      <HomeGrown />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

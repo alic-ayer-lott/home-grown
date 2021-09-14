@@ -1,30 +1,12 @@
-import React, { useEffect, useState } from "react"
-
+import React from "react"
+import { PlantList } from "./plants/PlantList"
 export const HomeGrown = () => {
-    const [plants, seePlants] = useState([])
-
-    useEffect(
-        () => {
-            fetch("http://localhost:8088/plants")
-                .then(res => res.json())
-                .then((plantArray) => {
-                    seePlants(plantArray)
-                })
-        },
-        []
-    )
 
     return (
         <>
             <h1>Home Grown</h1>
+            <PlantList />
 
-            {
-                plants.map(
-                    (plantObject) => {
-                        return <h2>{plantObject.name}</h2>
-                    }
-                )
-            }
         </>
     )
 }
