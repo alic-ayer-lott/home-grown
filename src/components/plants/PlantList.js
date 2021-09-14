@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 
 export const PlantList = () => {
     const [plants, seePlants] = useState([])
+    const history = useHistory()
 
     useEffect(
         () => {
@@ -20,10 +22,13 @@ export const PlantList = () => {
             {
                 plants.map(
                     (plantObject) => {
-                        return <ul><h2 key={`plant--${plantObject.id}`}><input type="radio" />{plantObject.name}</h2></ul>
+                        return <ul key={`plant--${plantObject.id}`}><h2 key={`plant--${plantObject.id}`}><input type="radio" />{plantObject.name}</h2></ul>
                     }
                 )
             }
+                    <div>
+                <button>Add Plants To Garden</button>
+            </div>
         </>
     )
 }
