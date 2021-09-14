@@ -16,11 +16,11 @@ export const PlantList = () => {
 
     return (
         <>
-        <h2>List of Plants</h2>
+        <h1>Available Plants</h1>
             {
                 plants.map(
                     (plantObject) => {
-                        return <h2 key={`plant--${plantObject.id}`}>{plantObject.name}</h2>
+                        return <ul><h2 key={`plant--${plantObject.id}`}><input type="radio" />{plantObject.name}</h2></ul>
                     }
                 )
             }
