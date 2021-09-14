@@ -16,7 +16,7 @@ export const PlantList = () => {
 
     return (
         <>
-
+        <h2>List of Plants</h2>
             {
                 plants.map(
                     (plantObject) => {
