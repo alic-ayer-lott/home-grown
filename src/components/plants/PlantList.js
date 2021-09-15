@@ -5,28 +5,40 @@ export const PlantList = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost:8088/plants")
-                .then(res => res.json())
-                .then((plantArray) => {
-                    seePlants(plantArray)
-                })
+          fetch(`http://localhost:8088/plants`)
+            .then(response => response.json())
+            .then((apiPlantData) => {
+              console.log("Got plants from API")
+              seePlants(apiPlantData)
+            })
         },
         []
-    )
-
-    return (
+      )
+    
+      useEffect(
+        () => {
+          console.log("Plants state changed", plants)
+        },
+        [plants]
+      )
+    
+    
+      return (
         <>
-        <h1>Available Plants</h1>
-            {
+            <article className="plant options">
+              {
                 plants.map(
-                    (plantObject) => {
-                        return <ul key={`plant--${plantObject.id}`}><h2 key={`plant--${plantObject.id}`}><input type="radio" />{plantObject.name}</h2></ul>
+                  (plantObject) => <button
+                    onClick={
+                      () => {
+                      }
                     }
+                    key={`plant--${plantObject.id}`}>
+                    {plantObject.name}
+                  </button>
                 )
-            }
-                    <div>
-                <button>Add Plants To Garden</button>
-            </div>
+              }
+            </article>
         </>
-    )
-}
+      );
+    }

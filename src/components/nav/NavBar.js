@@ -9,9 +9,6 @@ export const NavBar = () => {
                 <Link className="navbar__link" to="">Home</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="">Planner</Link>
-            </li>
-            <li className="navbar__item active">
                 <Link className="navbar__link" to="/mygarden">My Garden</Link>
             </li>
             <li className="navbar__item active">
