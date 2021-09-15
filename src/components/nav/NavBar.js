@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
-
+//create NavBar to have links to home, planner, mygarden, and logout pages
 export const NavBar = () => {
     return (
         <ul className="navbar">
@@ -9,10 +9,7 @@ export const NavBar = () => {
                 <Link className="navbar__link" to="">Home</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="">Planner</Link>
-            </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/plants">My Garden</Link>
+                <Link className="navbar__link" to="/mygarden">My Garden</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/login">Logout</Link>
