@@ -1,4 +1,4 @@
-import HomeGrown from "../images/HomeGrown.jpg"
+import HomeGrown from "../images/homegrown.png"
 
 export const HomePage = () => {
     return (
