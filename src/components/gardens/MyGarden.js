@@ -7,7 +7,7 @@ export const MyGarden = () => {
         userId:parseInt(localStorage.getItem("grow_customer"))
   })
   const [chosenOptions, updateOptions] = useState({
-    plant: "spinach"
+    plant: "Choose Seed"
   })
 
 

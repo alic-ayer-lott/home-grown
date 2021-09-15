@@ -1,13 +1,17 @@
 import React from "react"
 import { Route } from "react-router-dom"
-// import { PlantList } from "./plants/PlantList"
 import { MyGarden } from "./gardens/MyGarden"
+import { HomePage } from "./home/HomePage"
+
 
 export const ApplicationViews = () => {
     return (
         <>
             <Route path="/mygarden">
                 <MyGarden />
+            </Route>
+            <Route path="/home">
+                <HomePage />
             </Route>
         </>
     )
