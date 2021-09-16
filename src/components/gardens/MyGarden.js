@@ -10,6 +10,8 @@ export const MyGarden = () => {
     plant: "Choose Seed"
   })
 
+const userId = parseInt(localStorage.getItem("grow_customer"))
+
 
   useEffect(
     () => {
@@ -19,13 +21,13 @@ export const MyGarden = () => {
   )
 
   const orderFetcher = () => {
-    fetch(`http://localhost:8088/plantsByUsers?_expand=user&_expand=plant`)
+    fetch(`http://localhost:8088/plantsByUsers?userId=${userId}&_expand=user&_expand=plant&_sort=user`)
       .then(response => response.json())
       .then((data) => {
         console.log("Got plants response from API")
         populateOrders(data)
       })
-  }
+  } //using JSON to to filter the users
 
   useEffect(
     () => {
@@ -114,7 +116,9 @@ export const MyGarden = () => {
               orderFetcher()
             })
         }
-      }>Save Seeds</button>
+      } //posting saved seed options after clicking save seeds button
+
+      >Save Seeds</button>
 
       <h2>My Garden</h2>
 
@@ -124,8 +128,7 @@ export const MyGarden = () => {
             return <div>
               {order.plant.name}
             </div>
-          })
-        }
+          })}
       </article>
     </>
   );
