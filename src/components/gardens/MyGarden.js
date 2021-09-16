@@ -78,7 +78,7 @@ export const MyGarden = () => {
           orderFetcher()
         }
       )
-  }
+  } //use delete function then get data again without deleted object with orderFetcher()
 
 
 
