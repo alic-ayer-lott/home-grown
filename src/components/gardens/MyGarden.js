@@ -24,13 +24,10 @@ const userId = parseInt(localStorage.getItem("grow_customer"))
     fetch(`http://localhost:8088/plantsByUsers?userId=${userId}&_expand=user&_expand=plant&_sort=user`)
       .then(response => response.json())
       .then((data) => {
-        const filteredPlants = data.filter((item) => {
-          return item.userId === userId
-        })
         console.log("Got plants response from API")
-        populateOrders(filteredPlants)
+        populateOrders(data)
       })
-  }
+  } //using JSON to to filter the users
 
   useEffect(
     () => {
@@ -119,7 +116,8 @@ const userId = parseInt(localStorage.getItem("grow_customer"))
               orderFetcher()
             })
         }
-      }
+      } //posting saved seed options after clicking save seeds button
+
       >Save Seeds</button>
 
       <h2>My Garden</h2>
@@ -135,5 +133,3 @@ const userId = parseInt(localStorage.getItem("grow_customer"))
     </>
   );
 }
-
-//if order.userId --- user.id
