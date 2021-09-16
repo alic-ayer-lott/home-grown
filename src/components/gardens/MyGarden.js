@@ -10,6 +10,8 @@ export const MyGarden = () => {
     plant: "Choose Seed"
   })
 
+const userId = parseInt(localStorage.getItem("grow_customer"))
+
 
   useEffect(
     () => {
@@ -19,11 +21,14 @@ export const MyGarden = () => {
   )
 
   const orderFetcher = () => {
-    fetch(`http://localhost:8088/plantsByUsers?_expand=user&_expand=plant&_sort=user`)
+    fetch(`http://localhost:8088/plantsByUsers?userId=${userId}&_expand=user&_expand=plant&_sort=user`)
       .then(response => response.json())
       .then((data) => {
+        const filteredPlants = data.filter((item) => {
+          return item.userId === userId
+        })
         console.log("Got plants response from API")
-        populateOrders(data)
+        populateOrders(filteredPlants)
       })
   }
 
@@ -122,12 +127,10 @@ export const MyGarden = () => {
       <article className="chosenPlantList">
         {
           orders.map(order => {
-            if (order.userId === localStorage.getItem("grow_customer")) {
             return <div>
               {order.plant.name}
-            </div>}
-          })
-        }
+            </div>
+          })}
       </article>
     </>
   );
