@@ -4,13 +4,13 @@ export const MyGarden = () => {
   const [plants, updatePlants] = useState([])
   const [orders, populateOrders] = useState([])
   const [order, updateOrder] = useState({
-        userId:parseInt(localStorage.getItem("grow_customer"))
+    userId: parseInt(localStorage.getItem("grow_customer"))
   })
   const [chosenOptions, updateOptions] = useState({
     plant: "Choose Seed"
   })
 
-const userId = parseInt(localStorage.getItem("grow_customer"))
+  const userId = parseInt(localStorage.getItem("grow_customer"))
 
 
   useEffect(
@@ -68,6 +68,18 @@ const userId = parseInt(localStorage.getItem("grow_customer"))
     newObject[propToModify] = newValue
     updateOptions(newObject)              // Update state with copy
   }
+
+  const deletePlant = (id) => {
+    fetch(`http://localhost:8088/plantsByUsers/${id}`, {
+      method: "DELETE"
+    })
+      .then(
+        () => {
+          orderFetcher()
+        }
+      )
+  } //use delete function then get data again without deleted object with orderFetcher()
+
 
 
   return (
@@ -127,6 +139,10 @@ const userId = parseInt(localStorage.getItem("grow_customer"))
           orders.map(order => {
             return <div>
               {order.plant.name}
+              <button onClick={() => {
+                deletePlant(order.id)
+              }}>Delete</button>
+
             </div>
           })}
       </article>
