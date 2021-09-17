@@ -56,7 +56,7 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Register to Grow</h1>
+                <h2>Register to Grow</h2>
                 <fieldset>
                     <label htmlFor="name"> Name </label>
                     <input onChange={updateUser}
