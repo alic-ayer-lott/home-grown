@@ -85,8 +85,8 @@ export const MyGarden = () => {
 
   return (
     <>
-      {console.log(`JSX rendered`)}
-
+      {console.log(`JSX rendered`)} 
+      {/* first step */}
       <div className="container--mygarden">
         <h1>Available Seeds</h1>
         <article>
