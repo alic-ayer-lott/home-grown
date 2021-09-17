@@ -92,7 +92,7 @@ export const MyGarden = () => {
         <article>
           {
             plants.map(
-              (plantObject) => <button
+              (plantObject) => <button className="plantButton"
                 onClick={
                   () => {
                     updateOrderState("plant", plantObject.name)

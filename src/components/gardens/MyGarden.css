@@ -4,3 +4,16 @@
 .container--mygarden{
     font-family: 'Poppins', sans-serif;
 }
+
+.plantButton {
+    background-color: white;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: medium;
+}
+
+.plantButton:hover {
+    color: teal;
+    transition: width 0s ease, background .5s ease;
+    background-color: turquoise;
+}
