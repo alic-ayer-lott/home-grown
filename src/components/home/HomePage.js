@@ -1,4 +1,5 @@
 import HomeGrown from "../images/homegrown.png"
+import "./HomePage.css"
 
 export const HomePage = () => {
     return (

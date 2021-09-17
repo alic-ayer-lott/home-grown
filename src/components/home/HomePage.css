@@ -2,6 +2,7 @@
 
 .main--home {
     font-family: 'Poppins', sans-serif;
+    text-align: center;
 }
 
 
@@ -10,4 +11,8 @@
     max-height: 300px;
     align-content: center;
 
+}
+
+.h2 {
+    margin-bottom: 0%;
 }
