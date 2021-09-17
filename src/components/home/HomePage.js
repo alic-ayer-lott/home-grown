@@ -2,6 +2,9 @@ import HomeGrown from "../images/homegrown.png"
 
 export const HomePage = () => {
     return (
-        <img src={HomeGrown} alt="HomeGrown logo" />
+        <main class="main--home">
+            <h2>Plan for your best harvest to date with HomeGrown!</h2>
+        <img src={HomeGrown} class="home--logo"alt="HomeGrown logo" />
+        </main>
     )
 }

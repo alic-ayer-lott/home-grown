@@ -88,10 +88,8 @@ export const MyGarden = () => {
       {console.log(`JSX rendered`)}
 
       <div className="container--mygarden">
-
-      <main className="plants">
-      <h1>Available Seeds</h1>
-        <article className="plant--options">
+        <h1>Available Seeds</h1>
+        <article>
           {
             plants.map(
               (plantObject) => <button
@@ -108,47 +106,45 @@ export const MyGarden = () => {
           }
         </article>
 
-      </main>
+        <article>
 
-      <article>
+          <p>Seed: {chosenOptions.plant}</p>
+        </article>
 
-        <p>Seed: {chosenOptions.plant}</p>
-      </article>
+        <button onClick={
+          () => {
+            const fetchOptions = {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(order)
+            }
 
-      <button onClick={
-        () => {
-          const fetchOptions = {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(order)
+            fetch(`http://localhost:8088/plantsByUsers`, fetchOptions)
+              .then(() => {
+                orderFetcher()
+              })
           }
+        } //posting saved seed options after clicking save seeds button
 
-          fetch(`http://localhost:8088/plantsByUsers`, fetchOptions)
-            .then(() => {
-              orderFetcher()
-            })
-        }
-      } //posting saved seed options after clicking save seeds button
+        >Save Seeds</button>
 
-      >Save Seeds</button>
+        <h1>My Garden</h1>
 
-      <h1>My Garden</h1>
+        <article className="chosenPlantList">
+          {
+            orders.map(order => {
+              return <div>
+                {order.plant.name}
+                <button onClick={() => {
+                  deletePlant(order.id)
+                }}>Delete</button>
 
-      <article className="chosenPlantList">
-        {
-          orders.map(order => {
-            return <div>
-              {order.plant.name}
-              <button onClick={() => {
-                deletePlant(order.id)
-              }}>Delete</button>
-
-            </div>
-          })}
-      </article>
-    </div>
+              </div>
+            })}
+        </article>
+      </div>
     </>
   );
 }

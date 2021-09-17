@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.main--home {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.home--logo {
+    max-width: 300px;
+    max-height: 300px;
+    align-content: center;
+
+}
