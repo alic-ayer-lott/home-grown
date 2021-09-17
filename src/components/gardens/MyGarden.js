@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import "./MyGarden.css"
 
 export const MyGarden = () => {
   const [plants, updatePlants] = useState([])
