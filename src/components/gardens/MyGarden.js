@@ -8,7 +8,7 @@ export const MyGarden = () => {
     userId: parseInt(localStorage.getItem("grow_customer"))
   })
   const [chosenOptions, updateOptions] = useState({
-    plant: "Choose Seed"
+    plant: "Click Available Seed"
   })
 
   const userId = parseInt(localStorage.getItem("grow_customer"))
@@ -87,10 +87,11 @@ export const MyGarden = () => {
     <>
       {console.log(`JSX rendered`)}
 
-      <h2>Available Seeds</h2>
+      <div className="container--mygarden">
 
       <main className="plants">
-        <article className="plant options">
+      <h1>Available Seeds</h1>
+        <article className="plant--options">
           {
             plants.map(
               (plantObject) => <button
@@ -133,7 +134,7 @@ export const MyGarden = () => {
 
       >Save Seeds</button>
 
-      <h2>My Garden</h2>
+      <h1>My Garden</h1>
 
       <article className="chosenPlantList">
         {
@@ -147,6 +148,7 @@ export const MyGarden = () => {
             </div>
           })}
       </article>
+    </div>
     </>
   );
 }
