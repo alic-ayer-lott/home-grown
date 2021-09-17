@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
 import "./Login.css"
+import logoOnly from "../images/logoOnly.png"
 
 
 export const Register = (props) => {
@@ -48,7 +49,7 @@ export const Register = (props) => {
 
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <main className="container--login">
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>Account with that email address already exists</div>
                 <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
@@ -69,6 +70,7 @@ export const Register = (props) => {
                 <fieldset>
                     <button type="submit"> Register </button>
                 </fieldset>
+                <img src={logoOnly} className="logo--pic" alt="HomeGrown logo" />
             </form>
         </main>
     )
