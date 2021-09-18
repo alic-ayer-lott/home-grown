@@ -91,12 +91,12 @@ export const MyGarden = () => {
         <h1>Available Seeds</h1>
         <article>
           {
-            plants.map(
+            plants.map( //mapping through plant array to show the name of all available plants
               (plantObject) => <button className="plantButton"
                 onClick={
                   () => {
-                    updateOrderState("plant", plantObject.name)
-                    buildOrderObject("plantId", plantObject.id)
+                    updateOrderState("plant", plantObject.name) //update seed chosen option
+                    buildOrderObject("plantId", plantObject.id) //update my garden list
                   }
                 }
                 key={`plant--${plantObject.id}`}>
@@ -110,6 +110,7 @@ export const MyGarden = () => {
 
           <p>Seed: {chosenOptions.plant}</p>
         </article>
+        {/* what is returned from line 98 */}
 
         <button onClick={
           () => {
@@ -126,7 +127,7 @@ export const MyGarden = () => {
                 orderFetcher()
               })
           }
-        } //posting saved seed options after clicking save seeds button
+        } //posting saved seed options after clicking save seeds button and converting object to readable string
 
         >Save Seeds</button>
 
