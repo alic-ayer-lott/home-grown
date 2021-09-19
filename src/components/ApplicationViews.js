@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { MyGarden } from "./gardens/MyGarden"
 import { HomePage } from "./home/HomePage"
+import { Planner } from "./planner/Planner"
 
 
 export const ApplicationViews = () => {
@@ -12,6 +13,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route path="/home">
                 <HomePage />
+            </Route>
+            <Route path="/planner">
+                <Planner />
             </Route>
         </>
     )
