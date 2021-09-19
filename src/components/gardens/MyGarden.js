@@ -28,7 +28,7 @@ export const MyGarden = () => {
         console.log("Got plants response from API")
         populateOrders(data)
       })
-  } //using JSON to to filter the users
+  } //using JSON to to filter the users; allows to use locally; putting new data into populateOrders function
 
   useEffect(
     () => {
@@ -59,7 +59,7 @@ export const MyGarden = () => {
   )
 
   const buildOrderObject = (idToModify, newValue) => {
-    const newOrder = { ...order }
+    const newOrder = { ...order } // newOrder is a copy of order
     newOrder[idToModify] = newValue
     updateOrder(newOrder)
   }
@@ -79,7 +79,7 @@ export const MyGarden = () => {
           orderFetcher()
         }
       )
-  } //use delete function then get data again without deleted object with orderFetcher()
+  } //using delete method to delete only clicked id delete function then get data again without deleted object with orderFetcher()
 
 
 
@@ -95,8 +95,8 @@ export const MyGarden = () => {
               (plantObject) => <button className="plantButton"
                 onClick={
                   () => {
-                    updateOrderState("plant", plantObject.name) //update seed chosen option
-                    buildOrderObject("plantId", plantObject.id) //update my garden list
+                    updateOrderState("plant", plantObject.name) //update seed chosen option; passing plant as propToModify and plantObject.name as newValue
+                    buildOrderObject("plantId", plantObject.id) //update my garden list; passing plantId as idToModidy; plantObject.id passing in as newValue
                   }
                 }
                 key={`plant--${plantObject.id}`}>
@@ -127,7 +127,7 @@ export const MyGarden = () => {
                 orderFetcher()
               })
           }
-        } //posting saved seed options after clicking save seeds button and converting object to readable string
+        } //posting saved seed options after clicking save seeds button and converting object to readable string; take data and POST it to URL API; making data permanent
 
         >Save Seeds</button>
 
@@ -135,7 +135,7 @@ export const MyGarden = () => {
 
         <article className="chosenPlantList">
           {
-            orders.map(order => {
+            orders.map(order => { //mapping through orders array
               return <div>
                 {order.plant.name}
                 <button onClick={() => {
