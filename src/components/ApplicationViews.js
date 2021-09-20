@@ -10,7 +10,7 @@ export const ApplicationViews = () => {
             <Route path="/mygarden">
                 <MyGarden />
             </Route>
-            <Route path="/home">
+            <Route exact path="/">
                 <HomePage />
             </Route>
         </>

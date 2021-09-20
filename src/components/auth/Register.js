@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
 import "./Login.css"
+import logoOnly from "../images/logoOnly.png"
 
 
 export const Register = (props) => {
@@ -48,14 +49,14 @@ export const Register = (props) => {
 
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <main className="container--login">
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>Account with that email address already exists</div>
                 <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Honey Rae Repairs</h1>
+                <h2>Register to Grow</h2>
                 <fieldset>
                     <label htmlFor="name"> Name </label>
                     <input onChange={updateUser}
@@ -69,6 +70,7 @@ export const Register = (props) => {
                 <fieldset>
                     <button type="submit"> Register </button>
                 </fieldset>
+                <img src={logoOnly} className="logo--pic" alt="HomeGrown logo" />
             </form>
         </main>
     )

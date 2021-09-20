@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import "./Login.css"
+import largeLogo from "../images/largeLogo.png"
 
 export const Login = () => {
     const [email, set] = useState("")
@@ -37,8 +38,9 @@ export const Login = () => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>HomeGrown</h1>
-                    <h2>Please sign in</h2>
+                <img src={largeLogo} className="logo--picture" alt="HomeGrown logo" />
+                    <h2>Sign In To Grow</h2>
+                    <div className="email-input">
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
@@ -48,10 +50,11 @@ export const Login = () => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button className="button" type="submit">
                             Sign in
                         </button>
                     </fieldset>
+                    </div>
                 </form>
             </section>
             <section className="link--register">

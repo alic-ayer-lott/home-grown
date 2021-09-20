@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import "./MyGarden.css"
 
 export const MyGarden = () => {
   const [plants, updatePlants] = useState([])
@@ -7,7 +8,7 @@ export const MyGarden = () => {
     userId: parseInt(localStorage.getItem("grow_customer"))
   })
   const [chosenOptions, updateOptions] = useState({
-    plant: "Choose Seed"
+    plant: "Click Available Seed"
   })
 
   const userId = parseInt(localStorage.getItem("grow_customer"))
@@ -27,7 +28,7 @@ export const MyGarden = () => {
         console.log("Got plants response from API")
         populateOrders(data)
       })
-  } //using JSON to to filter the users
+  } //using JSON to to filter the users; allows to use locally; putting new data into populateOrders function
 
   useEffect(
     () => {
@@ -58,7 +59,7 @@ export const MyGarden = () => {
   )
 
   const buildOrderObject = (idToModify, newValue) => {
-    const newOrder = { ...order }
+    const newOrder = { ...order } // newOrder is a copy of order
     newOrder[idToModify] = newValue
     updateOrder(newOrder)
   }
@@ -78,25 +79,24 @@ export const MyGarden = () => {
           orderFetcher()
         }
       )
-  } //use delete function then get data again without deleted object with orderFetcher()
+  } //using delete method to delete only clicked id delete function then get data again without deleted object with orderFetcher()
 
 
 
   return (
     <>
-      {console.log(`JSX rendered`)}
-
-      <h2>Available Seeds</h2>
-
-      <main className="plants">
-        <article className="plant options">
+      {console.log(`JSX rendered`)} 
+      {/* first step */}
+      <div className="container--mygarden">
+        <h1>Available Seeds</h1>
+        <article>
           {
-            plants.map(
-              (plantObject) => <button
+            plants.map( //mapping through plant array to show the name of all available plants
+              (plantObject) => <button className="plantButton"
                 onClick={
                   () => {
-                    updateOrderState("plant", plantObject.name)
-                    buildOrderObject("plantId", plantObject.id)
+                    updateOrderState("plant", plantObject.name) //update seed chosen option; passing plant as propToModify and plantObject.name as newValue
+                    buildOrderObject("plantId", plantObject.id) //update my garden list; passing plantId as idToModidy; plantObject.id passing in as newValue
                   }
                 }
                 key={`plant--${plantObject.id}`}>
@@ -106,46 +106,46 @@ export const MyGarden = () => {
           }
         </article>
 
-      </main>
+        <article>
 
-      <article>
+          <p>Seed: {chosenOptions.plant}</p>
+        </article>
+        {/* what is returned from line 98 */}
 
-        <p>Seed: {chosenOptions.plant}</p>
-      </article>
+        <button onClick={
+          () => {
+            const fetchOptions = {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(order)
+            }
 
-      <button onClick={
-        () => {
-          const fetchOptions = {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(order)
+            fetch(`http://localhost:8088/plantsByUsers`, fetchOptions)
+              .then(() => {
+                orderFetcher()
+              })
           }
+        } //posting saved seed options after clicking save seeds button and converting object to readable string; take data and POST it to URL API; making data permanent
 
-          fetch(`http://localhost:8088/plantsByUsers`, fetchOptions)
-            .then(() => {
-              orderFetcher()
-            })
-        }
-      } //posting saved seed options after clicking save seeds button
+        >Save Seeds</button>
 
-      >Save Seeds</button>
+        <h1>My Garden</h1>
 
-      <h2>My Garden</h2>
+        <article className="chosenPlantList">
+          {
+            orders.map(order => { //mapping through orders array
+              return <div>
+                {order.plant.name}
+                <button onClick={() => {
+                  deletePlant(order.id)
+                }}>Delete</button>
 
-      <article className="chosenPlantList">
-        {
-          orders.map(order => {
-            return <div>
-              {order.plant.name}
-              <button onClick={() => {
-                deletePlant(order.id)
-              }}>Delete</button>
-
-            </div>
-          })}
-      </article>
+              </div>
+            })}
+        </article>
+      </div>
     </>
   );
 }
