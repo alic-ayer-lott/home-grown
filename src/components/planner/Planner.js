@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react"
 
 export const Planner = () => {
     const [seasons, showSeasons] = useState([])
+    const [chosenSeasons, chooseSeasons] = useState({
+        season: "Choose Season"
+    })
 
     useEffect(
         () => {
@@ -19,6 +22,12 @@ export const Planner = () => {
         []
     )
 
+    const updateSelectedSeason = (propToMod, newValue) => {
+        const newSeason = { ...chosenSeasons }
+        newSeason[propToMod] = newValue
+        chooseSeasons(newSeason)
+    }
+
     return (
         <>
             <main className="planner-options">
@@ -31,7 +40,7 @@ export const Planner = () => {
                             (seasonObject) => <button
                                 onClick={
                                     () => {
-
+                                        updateSelectedSeason("season", seasonObject.season)
                                     }
                                 }>
                                 {seasonObject.season}
@@ -39,9 +48,16 @@ export const Planner = () => {
                             //itterate through seasons array to render the seasonObject's season
                         )
                     }
+
                 </article>
 
+                <p>Season: {chosenSeasons.season}</p>
+
                 <h1>Viable Seeds</h1>
+
+                <article className="viable--options">
+
+                </article>
 
             </main>
         </>
