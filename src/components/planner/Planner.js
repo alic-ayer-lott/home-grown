@@ -10,6 +10,10 @@ export const Planner = () => {
                 .then((seasonArray) => {
                     showSeasons(seasonArray)
                 })
+            //get seasons data from API and pull into application state
+            //initiate http request to local API for seasons data
+            //convert json encoded string to javascript
+            //invoke showSeasons function and store seasonArray as seasons
 
         },
         []
@@ -17,15 +21,29 @@ export const Planner = () => {
 
     return (
         <>
-            <h1>Select Season</h1>
+            <main className="planner-options">
 
-            {
-                seasons.map(
-                    (seasonObject) => <button>
-                        {seasonObject.season}
-                    </button>
-                )
-            }
+                <h1>Select Season</h1>
+
+                <article className="season--options">
+                    {
+                        seasons.map(
+                            (seasonObject) => <button
+                                onClick={
+                                    () => {
+
+                                    }
+                                }>
+                                {seasonObject.season}
+                            </button>
+                            //itterate through seasons array to render the seasonObject's season
+                        )
+                    }
+                </article>
+
+                <h1>Viable Seeds</h1>
+
+            </main>
         </>
     )
 
