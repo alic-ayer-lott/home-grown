@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import "./Planner.css"
 
 export const Planner = () => {
     const [seasons, showSeasons] = useState([])
@@ -42,7 +43,7 @@ export const Planner = () => {
 
     return (
         <>
-            <main className="planner-options">
+            <main className="planner--options">
 
                 <h1>Select Season</h1>
 
