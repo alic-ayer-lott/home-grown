@@ -51,11 +51,13 @@ export const Planner = () => {
 
                 </article>
 
-                <p>Season: {chosenSeasons.season}</p>
+                {/* <p>Season: {chosenSeasons.season}</p> */}
 
-                <h1>Viable Seeds</h1>
+                <h1>Seeds to plant in {chosenSeasons.season} :</h1>
 
                 <article className="viable--options">
+
+                    
 
                 </article>
 
