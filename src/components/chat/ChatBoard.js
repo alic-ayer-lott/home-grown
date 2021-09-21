@@ -7,7 +7,7 @@ export const ChatBoard = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost:8088/posts")
+            fetch("http://localhost:8088/posts?_expand=user")
                 .then(res => res.json())
                 .then((newData) => {
                     updatePosts(newData)
@@ -27,7 +27,7 @@ export const ChatBoard = () => {
             posts.map(
                 (post) => {
                     return <p key={`post--${post.id}`}>
-                        {post.tip}
+                        {post.tip} submitted by {post.user.name}
                     </p>
                 }
             )
