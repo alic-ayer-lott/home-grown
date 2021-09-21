@@ -1,9 +1,39 @@
-
+import React, {useEffect, useState} from "react"
+import { useHistory } from "react-router"
 
 export const ChatBoard = () => {
+    const [posts, updatePosts] = useState([])
+    const history = useHistory()
+
+    useEffect(
+        () => {
+            fetch("http://localhost:8088/posts")
+                .then(res => res.json())
+                .then((newData) => {
+                    updatePosts(newData)
+                })
+        },
+        []
+    )
 
 
     return (
-        <h1>Chats</h1>
+        <>
+            <div>
+                <button onClick={() => history.push("/chat/post")}>New Post</button>
+            </div>
+        
+        {
+            posts.map(
+                (post) => {
+                    return <p key={`post--${post.id}`}>
+                        {post.tip}
+                    </p>
+                }
+            )
+        }
+
+
+        </>
     )
 }
