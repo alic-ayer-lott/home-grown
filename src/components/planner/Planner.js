@@ -5,6 +5,7 @@ export const Planner = () => {
     const [chosenSeasons, chooseSeasons] = useState({
         season: "Choose Season"
     })
+    const [viableSeeds, showSeeds] = useState([])
 
     useEffect(
         () => {
@@ -18,6 +19,17 @@ export const Planner = () => {
             //convert json encoded string to javascript
             //invoke showSeasons function and store seasonArray as seasons
 
+        },
+        []
+    )
+
+    useEffect(
+        () => {
+            fetch("http://localhost:8088/plantsBySeasons?_expand=plant&_expand=season")
+            .then(res => res.json())
+            .then((viableArray) => {
+                showSeeds(viableArray)
+            })
         },
         []
     )
@@ -56,8 +68,15 @@ export const Planner = () => {
                 <h1>Seeds to plant in {chosenSeasons.season} :</h1>
 
                 <article className="viable--options">
+                    {
+                        viableSeeds.map((seed) => {
+                            if (seed.season.season === chosenSeasons.season)
+                                return <div>{seed.plant.name}</div>
+                        }
+                        )
+                    }
 
-                    
+
 
                 </article>
 
