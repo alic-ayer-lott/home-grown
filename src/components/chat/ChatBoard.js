@@ -45,7 +45,7 @@ export const ChatBoard = () => {
                 posts.map(
                     (post) => {
                         return <p key={`post--${post.id}`}>
-                            {post.tip} submitted by {post.user.name}
+                            {post.tip} submitted by {post.user?.name}
                             <button onClick={() => {
                                 deletePost(post.id)
                             }}>Delete</button>
