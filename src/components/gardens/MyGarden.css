@@ -3,6 +3,7 @@
 
 .container--mygarden{
     font-family: 'Poppins', sans-serif;
+    flex-wrap: wrap;
 }
 
 .plantButton {
@@ -13,7 +14,18 @@
 }
 
 .plantButton:hover {
-    color: teal;
     transition: width 0s ease, background .5s ease;
-    background-color: turquoise;
+    background-color: #AAD2BA;
+}
+
+.save--button {
+    background-color: #AAD2BA;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.delete--button {
+    background-color: #AAD2BA;
+    font-family: 'Poppins', sans-serif;
+    font-weight: lighter;
 }

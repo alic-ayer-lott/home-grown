@@ -112,7 +112,7 @@ export const MyGarden = () => {
         </article>
         {/* what is returned from line 98 */}
 
-        <button onClick={
+        <button className="save--button" onClick={
           () => {
             const fetchOptions = {
               method: "POST",
@@ -138,7 +138,7 @@ export const MyGarden = () => {
             orders.map(order => { //mapping through orders array
               return <div>
                 {order.plant.name}
-                <button onClick={() => {
+                <button className="delete--button" onClick={() => {
                   deletePlant(order.id)
                 }}>Delete</button>
 
