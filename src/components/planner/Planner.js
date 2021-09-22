@@ -72,7 +72,7 @@ export const Planner = () => {
                     {
                         viableSeeds.map((seed) => {
                             if (seed.season.season === chosenSeasons.season)
-                                return <button>{seed.plant.name}</button>
+                                return <div>{seed.plant.name}</div>
                         }
                         )
                     }

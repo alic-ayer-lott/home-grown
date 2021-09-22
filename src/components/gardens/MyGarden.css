@@ -6,11 +6,18 @@
     flex-wrap: wrap;
 }
 
+.plantButtonOptions{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+}
+
 .plantButton {
     background-color: white;
     border: none;
     font-family: 'Poppins', sans-serif;
     font-size: medium;
+    flex-direction: column;
 }
 
 .plantButton:hover {
@@ -28,4 +35,8 @@
     background-color: #AAD2BA;
     font-family: 'Poppins', sans-serif;
     font-weight: lighter;
+}
+
+h1 {
+    font-size: large;
 }

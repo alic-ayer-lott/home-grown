@@ -89,7 +89,7 @@ export const MyGarden = () => {
       {/* first step */}
       <div className="container--mygarden">
         <h1>Available Seeds</h1>
-        <article>
+        <article className="plantButtonOptions">
           {
             plants.map( //mapping through plant array to show the name of all available plants
               (plantObject) => <button className="plantButton"
