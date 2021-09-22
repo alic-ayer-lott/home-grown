@@ -18,7 +18,7 @@ export const ChatBoard = () => {
     )
 
     const postFetcher = () => {
-        fetch(`http://localhost:8088/posts`)
+        fetch(`http://localhost:8088/posts?_expand=user`)
             .then(response => response.json())
             .then((data) => {
                 updatePosts(data)
@@ -31,7 +31,7 @@ export const ChatBoard = () => {
         })
             .then(
                 () => {
-                    postFetcher()
+                    return postFetcher()
                 }
             )
     }
