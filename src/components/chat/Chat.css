@@ -2,8 +2,32 @@
 
 .main--chat{
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .chatForm{
     font-family: 'Poppins', sans-serif;
+}
+
+.single__post{
+    border-style: solid;
+    border-width: 1px;
+    background-color: #D8F3DC;
+    margin: 10px;
+}
+
+.new-post-button{
+    font-family: 'Poppins', sans-serif;
+    margin: 30px;
+    
+}
+.delete-post-button{
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    border-style: none;
+}
+
+.new__button{
+    align-content: center;
 }

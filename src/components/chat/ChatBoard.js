@@ -39,23 +39,24 @@ export const ChatBoard = () => {
     return (
         <>
             <main className="main--chat">
-                <div>
-                    <button onClick={() => history.push("/chat/post")}>New Post</button>
-                </div>
 
                 {
                     posts.map(
                         (post) => {
-                            return <p key={`post--${post.id}`}>
-                                {post.tip} submitted by {post.user?.name}
-                                <button onClick={() => {
+                            return <div className="single__post" key={`post--${post.id}`}>
+                                {post.tip} Posted by: {post.user?.name}
+                                <p><button className="delete-post-button" onClick={() => {
                                     deletePost(post.id)
-                                }}>Delete</button>
+                                }}>Delete</button></p>
 
-                            </p>
+                            </div>
                         }
                     )
                 }
+
+                <div className="new__button">
+                    <button className="new-post-button" onClick={() => history.push("/chat/post")}>New Post</button>
+                </div>
 
             </main>
         </>

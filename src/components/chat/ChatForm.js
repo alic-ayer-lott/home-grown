@@ -36,7 +36,7 @@ export const ChatForm = () => {
             <h2 className="chatForm--title">New Post</h2>
             <fieldset>
                 <div className="form--dets">
-                    <label htmlFor="post">Tip:</label>
+                    {/* <label htmlFor="post">Tip:</label> */}
                     <input
                         onChange={
                             (evt) => {
