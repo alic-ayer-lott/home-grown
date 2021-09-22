@@ -45,6 +45,8 @@ export const Planner = () => {
         <>
             <main className="planner--options">
 
+                <div className="desired__season">
+
                 <h1>Please select desired planting season.</h1>
 
                 <article className="season--options">
@@ -64,7 +66,11 @@ export const Planner = () => {
 
                 </article>
 
+                </div>
+
                 {/* <p>Season: {chosenSeasons.season}</p> */}
+
+                <div className="available__container">
 
                 <h1>Available seeds to plant in {chosenSeasons.season} :</h1>
 
@@ -80,6 +86,7 @@ export const Planner = () => {
 
 
                 </article>
+                </div>
 
             </main>
         </>

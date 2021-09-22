@@ -13,5 +13,13 @@
 
 .season__button:hover {
     transition: width 0s ease, background .5s ease;
-    background-color: #AAD2BA;
+    background-color: #B7E4C7;
+}
+
+.available__container{
+    margin: 30px;
+}
+
+.desired__season{
+    margin: 30px;
 }
