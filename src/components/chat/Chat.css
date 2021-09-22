@@ -15,6 +15,7 @@
     border-width: 1px;
     background-color: #D8F3DC;
     margin: 10px;
+    padding: 10px;
 }
 
 .new-post-button{
@@ -29,5 +30,5 @@
 }
 
 .new__button{
-    align-content: center;
+    display: flex;
 }

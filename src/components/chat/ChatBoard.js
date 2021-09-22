@@ -55,7 +55,7 @@ export const ChatBoard = () => {
                 }
 
                 <div className="new__button">
-                    <button className="new-post-button" onClick={() => history.push("/chat/post")}>New Post</button>
+                    <button className="new-post-button" onClick={() => history.push("/chat/post")}>Create New Post</button>
                 </div>
 
             </main>

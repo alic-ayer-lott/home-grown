@@ -13,8 +13,8 @@
     list-style-type: none;
 }
 
-.navbar__link:hover {
-    transform: scale(1.5);
+.active{
+    text-align: center;
 }
 
 .navbar__link{
