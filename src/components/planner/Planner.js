@@ -45,12 +45,12 @@ export const Planner = () => {
         <>
             <main className="planner--options">
 
-                <h1>Select Season</h1>
+                <h1>Please select desired planting season.</h1>
 
                 <article className="season--options">
                     {
                         seasons.map(
-                            (seasonObject) => <button
+                            (seasonObject) => <button className="season__button"
                                 onClick={
                                     () => {
                                         updateSelectedSeason("season", seasonObject.season)
@@ -66,7 +66,7 @@ export const Planner = () => {
 
                 {/* <p>Season: {chosenSeasons.season}</p> */}
 
-                <h1>Seeds to plant in {chosenSeasons.season} :</h1>
+                <h1>Available seeds to plant in {chosenSeasons.season} :</h1>
 
                 <article className="viable--options">
                     {

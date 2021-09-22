@@ -3,3 +3,15 @@
 .planner--options {
     font-family: 'Poppins', sans-serif;
 }
+
+.season__button{
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    border-style: none;
+    font-size: 16px;
+}
+
+.season__button:hover {
+    transition: width 0s ease, background .5s ease;
+    background-color: #AAD2BA;
+}
