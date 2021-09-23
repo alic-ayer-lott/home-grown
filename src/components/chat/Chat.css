@@ -6,6 +6,10 @@
     flex-direction: column;
 }
 
+.chat--form{
+    text-align: center;
+}
+
 .chatForm{
     font-family: 'Poppins', sans-serif;
 }
@@ -31,4 +35,21 @@
 
 .new__button{
     display: flex;
+}
+
+.btn-save {
+    font-family: 'Poppins', sans-serif;
+    margin: 30px;
+}
+
+.form-control-post{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
 }

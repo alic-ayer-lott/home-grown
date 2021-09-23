@@ -33,7 +33,8 @@ export const ChatForm = () => {
 
     return (
         <form className="chatForm">
-            <h2 className="chatForm--title">New Post</h2>
+        <main className="chat--form">
+            <h2>New Post</h2>
             <fieldset>
                 <div className="form--dets">
                     {/* <label htmlFor="post">Tip:</label> */}
@@ -47,7 +48,7 @@ export const ChatForm = () => {
                         } //event listener to update tip property; capture event that is passed as parameter
                         required autoFocus
                         type="text" id="post"
-                        className="form-control"
+                        className="form-control-post"
                         placeholder="Please type your favorite gardening tip!"
                     />
                 </div>
@@ -55,6 +56,7 @@ export const ChatForm = () => {
             <button onClick={savePost} className="btn-save">
                 Save
             </button>
+        </main>
         </form>
     )
 }
