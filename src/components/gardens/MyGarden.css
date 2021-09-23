@@ -4,6 +4,7 @@
 .container--mygarden{
     font-family: 'Poppins', sans-serif;
     flex-wrap: wrap;
+    margin: 15px;
 }
 
 .plantButtonOptions{
