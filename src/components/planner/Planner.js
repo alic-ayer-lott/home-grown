@@ -45,12 +45,14 @@ export const Planner = () => {
         <>
             <main className="planner--options">
 
-                <h1>Select Season</h1>
+                <div className="desired__season">
+
+                <h1>Please select desired planting season.</h1>
 
                 <article className="season--options">
                     {
                         seasons.map(
-                            (seasonObject) => <button
+                            (seasonObject) => <button className="season__button"
                                 onClick={
                                     () => {
                                         updateSelectedSeason("season", seasonObject.season)
@@ -64,15 +66,19 @@ export const Planner = () => {
 
                 </article>
 
+                </div>
+
                 {/* <p>Season: {chosenSeasons.season}</p> */}
 
-                <h1>Seeds to plant in {chosenSeasons.season} :</h1>
+                <div className="available__container">
+
+                <h1>Available seeds to plant in {chosenSeasons.season} :</h1>
 
                 <article className="viable--options">
                     {
                         viableSeeds.map((seed) => {
                             if (seed.season.season === chosenSeasons.season)
-                                return <button>{seed.plant.name}</button>
+                                return <div>{seed.plant.name}</div>
                         }
                         )
                     }
@@ -80,6 +86,7 @@ export const Planner = () => {
 
 
                 </article>
+                </div>
 
             </main>
         </>

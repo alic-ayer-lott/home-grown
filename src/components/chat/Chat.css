@@ -2,8 +2,54 @@
 
 .main--chat{
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat--form{
+    text-align: center;
 }
 
 .chatForm{
     font-family: 'Poppins', sans-serif;
+}
+
+.single__post{
+    border-style: solid;
+    border-width: 1px;
+    background-color: #D8F3DC;
+    margin: 10px;
+    padding: 10px;
+}
+
+.new-post-button{
+    font-family: 'Poppins', sans-serif;
+    margin: 30px;
+    
+}
+.delete-post-button{
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    border-style: none;
+}
+
+.new__button{
+    display: flex;
+}
+
+.btn-save {
+    font-family: 'Poppins', sans-serif;
+    margin: 30px;
+}
+
+.form-control-post{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
 }

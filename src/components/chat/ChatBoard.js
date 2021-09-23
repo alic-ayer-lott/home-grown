@@ -18,7 +18,7 @@ export const ChatBoard = () => {
     )
 
     const postFetcher = () => {
-        fetch(`http://localhost:8088/posts`)
+        fetch(`http://localhost:8088/posts?_expand=user`)
             .then(response => response.json())
             .then((data) => {
                 updatePosts(data)
@@ -31,7 +31,7 @@ export const ChatBoard = () => {
         })
             .then(
                 () => {
-                    postFetcher()
+                    return postFetcher()
                 }
             )
     }
@@ -39,23 +39,24 @@ export const ChatBoard = () => {
     return (
         <>
             <main className="main--chat">
-                <div>
-                    <button onClick={() => history.push("/chat/post")}>New Post</button>
-                </div>
 
                 {
                     posts.map(
                         (post) => {
-                            return <p key={`post--${post.id}`}>
-                                {post.tip} submitted by {post.user?.name}
-                                <button onClick={() => {
+                            return <div className="single__post" key={`post--${post.id}`}>
+                                {post.tip} Posted by: {post.user?.name}
+                                <p><button className="delete-post-button" onClick={() => {
                                     deletePost(post.id)
-                                }}>Delete</button>
+                                }}>Delete</button></p>
 
-                            </p>
+                            </div>
                         }
                     )
                 }
+
+                <div className="new__button">
+                    <button className="new-post-button" onClick={() => history.push("/chat/post")}>Create New Post</button>
+                </div>
 
             </main>
         </>

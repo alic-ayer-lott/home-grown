@@ -89,7 +89,7 @@ export const MyGarden = () => {
       {/* first step */}
       <div className="container--mygarden">
         <h1>Available Seeds</h1>
-        <article>
+        <article className="plantButtonOptions">
           {
             plants.map( //mapping through plant array to show the name of all available plants
               (plantObject) => <button className="plantButton"
@@ -112,7 +112,7 @@ export const MyGarden = () => {
         </article>
         {/* what is returned from line 98 */}
 
-        <button onClick={
+        <button className="save--button" onClick={
           () => {
             const fetchOptions = {
               method: "POST",
@@ -138,7 +138,7 @@ export const MyGarden = () => {
             orders.map(order => { //mapping through orders array
               return <div>
                 {order.plant.name}
-                <button onClick={() => {
+                <button className="delete--button" onClick={() => {
                   deletePlant(order.id)
                 }}>Delete</button>
 

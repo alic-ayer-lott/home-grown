@@ -3,6 +3,15 @@
 
 .container--mygarden{
     font-family: 'Poppins', sans-serif;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+
+.plantButtonOptions{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 150px;
 }
 
 .plantButton {
@@ -10,10 +19,31 @@
     border: none;
     font-family: 'Poppins', sans-serif;
     font-size: medium;
+    flex-direction: column;
 }
 
 .plantButton:hover {
-    color: teal;
     transition: width 0s ease, background .5s ease;
-    background-color: turquoise;
+    background-color: #D8F3DC;
+}
+
+.save--button {
+    background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    color: #1B4332;
+    border-color: #1B4332;
+}
+
+.delete--button {
+    background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-weight: lighter;
+    color: #081C15;
+    border-style: none;
+    margin-left: 20px;
+}
+
+h1 {
+    font-size: large;
 }
