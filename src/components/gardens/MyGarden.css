@@ -9,7 +9,8 @@
 .plantButtonOptions{
     display: flex;
     flex-direction: column;
-    max-width: 200px;
+    flex-wrap: wrap;
+    max-height: 150px;
 }
 
 .plantButton {
@@ -22,19 +23,24 @@
 
 .plantButton:hover {
     transition: width 0s ease, background .5s ease;
-    background-color: #AAD2BA;
+    background-color: #D8F3DC;
 }
 
 .save--button {
-    background-color: #AAD2BA;
+    background-color: whitesmoke;
     font-family: 'Poppins', sans-serif;
     font-weight: bolder;
+    color: #1B4332;
+    border-color: #1B4332;
 }
 
 .delete--button {
-    background-color: #AAD2BA;
+    background-color: whitesmoke;
     font-family: 'Poppins', sans-serif;
     font-weight: lighter;
+    color: #081C15;
+    border-style: none;
+    margin-left: 20px;
 }
 
 h1 {
