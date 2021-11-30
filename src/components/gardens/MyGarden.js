@@ -3,7 +3,7 @@ import "./MyGarden.css"
 
 export const MyGarden = () => {
   const [plants, updatePlants] = useState([])
-  const [orders, populateOrders] = useState([])
+  const [orders, populateOrders] = useState([]) //orders is copy of userId; make copy in buildOrderObject; expanding user on fetch
   const [order, updateOrder] = useState({
     userId: parseInt(localStorage.getItem("grow_customer"))
   })
@@ -14,18 +14,11 @@ export const MyGarden = () => {
   const userId = parseInt(localStorage.getItem("grow_customer"))
 
 
-  useEffect(
-    () => {
-      console.log("Plants state changed", plants)
-    },
-    [plants]
-  )
-
   const orderFetcher = () => {
     fetch(`http://localhost:8088/plantsByUsers?userId=${userId}&_expand=user&_expand=plant&_sort=user`)
       .then(response => response.json())
       .then((data) => {
-        console.log("Got plants response from API")
+        // console.log("Got plants response from API")
         populateOrders(data)
       })
   } //using JSON to to filter the users; allows to use locally; putting new data into populateOrders function
@@ -35,27 +28,13 @@ export const MyGarden = () => {
       fetch(`http://localhost:8088/plants`)
         .then(response => response.json())
         .then((apiPlantData) => {
-          console.log("Got plants response from API")
+          // console.log("Got plants response from API")
           updatePlants(apiPlantData)
         })
 
       orderFetcher()
     },
     []
-  )
-
-  useEffect(
-    () => {
-      console.log("Options updated", chosenOptions)
-    },
-    [chosenOptions]
-  )
-
-  useEffect(
-    () => {
-      console.log("Plant state changed", plants)
-    },
-    [plants]
   )
 
   const buildOrderObject = (idToModify, newValue) => {
@@ -85,7 +64,6 @@ export const MyGarden = () => {
 
   return (
     <>
-      {console.log(`JSX rendered`)} 
       {/* first step */}
       <div className="container--mygarden">
         <h1>Available Seeds</h1>
@@ -110,7 +88,6 @@ export const MyGarden = () => {
 
           <p>Seed: {chosenOptions.plant}</p>
         </article>
-        {/* what is returned from line 98 */}
 
         <button className="save--button" onClick={
           () => {
